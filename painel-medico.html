@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Painel Médico — Clínica Vida+</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+</head>
+<body>
+<div id="page-loader" class="page-loader"><div class="loader-content"><div class="loader-logo">Vida<span>+</span></div><div class="loader-spinner"></div><p>Carregando...</p></div></div>
+<div class="doctor-layout app-layout">
+  <aside class="doctor-sidebar app-sidebar">
+    <div class="sidebar-brand"><div class="sidebar-mark">+</div><div class="sidebar-brand-copy"><strong>Clínica Vida+</strong><small>Painel médico</small></div></div>
+    <nav class="doctor-sidebar-menu sidebar-menu">
+      <p class="doctor-menu-title menu-title">PRINCIPAL</p>
+      <button class="doctor-menu-item menu-item ativo" data-section="dashboard" title="Visão geral"><i data-lucide="layout-dashboard"></i><span class="sidebar-copy">Visão geral</span></button>
+      <button class="doctor-menu-item menu-item" data-section="agenda" title="Minha agenda"><i data-lucide="calendar-days"></i><span class="sidebar-copy">Minha agenda</span></button>
+      <button class="doctor-menu-item menu-item" data-section="atendimento" title="Atendimento"><i data-lucide="clipboard-plus"></i><span class="sidebar-copy">Atendimento</span></button>
+      <button class="doctor-menu-item menu-item" data-section="historico" title="Histórico"><i data-lucide="history"></i><span class="sidebar-copy">Histórico</span></button>
+      <p class="doctor-menu-title menu-title">CONTA</p>
+      <button class="doctor-menu-item menu-item" data-section="perfil" title="Meu perfil"><i data-lucide="user-round"></i><span class="sidebar-copy">Meu perfil</span></button>
+    </nav>
+    <div class="doctor-sidebar-footer sidebar-footer"><div class="doctor-mini-profile sidebar-user"><div id="doctor-sidebar-avatar" class="doctor-avatar sidebar-avatar">M</div><div class="sidebar-user-copy"><strong id="doctor-sidebar-name">Médico</strong><small id="doctor-sidebar-specialty">Especialidade</small></div></div><button id="logout" class="doctor-sidebar-logout sidebar-logout" type="button"><i data-lucide="log-out"></i><span class="sidebar-copy">Sair</span></button></div>
+  </aside>
+  <main class="doctor-main app-main">
+    <header class="doctor-topbar app-topbar"><div><h1 id="page-title">Visão geral</h1><p id="page-subtitle">Sua agenda e atendimentos.</p></div></header>
+
+    <section id="section-dashboard" class="doctor-section app-section ativo">
+      <div class="page-head"><div><span class="page-label">PAINEL MÉDICO</span><h2 id="doctor-welcome">Olá</h2><p>O essencial para organizar seus atendimentos de hoje.</p></div></div>
+      <div class="overview-row"><div class="metric"><strong id="doc-today">0</strong><span>Consultas hoje</span></div><div class="metric"><strong id="doc-next">—</strong><span>Próxima consulta</span></div><div class="metric"><strong id="doc-done">0</strong><span>Realizadas</span></div><div class="metric"><strong id="doc-patients">0</strong><span>Pacientes do dia</span></div></div>
+      <div class="surface"><div class="surface-head"><div><h3>Próximas consultas</h3><p>Seus próximos atendimentos</p></div><button class="btn btn-ghost" data-go="agenda" type="button">Ver agenda</button></div><div id="doctor-next-list" class="agenda-list"></div></div>
+    </section>
+
+    <section id="section-agenda" class="doctor-section app-section">
+      <div class="page-head"><div><span class="page-label">AGENDA</span><h2>Minha agenda</h2><p>Somente consultas relacionadas ao seu perfil.</p></div></div>
+      <div class="surface"><div class="calendar-toolbar"><div style="display:flex;align-items:center;gap:8px"><button id="doc-prev" class="icon-button" type="button"><i data-lucide="chevron-left"></i></button><button id="doc-today-btn" class="btn btn-secondary" type="button">Hoje</button><button id="doc-next-btn" class="icon-button" type="button"><i data-lucide="chevron-right"></i></button><strong id="doc-calendar-title"></strong></div></div><div class="calendar-scroll"><div id="doc-calendar" class="simple-calendar"></div></div><div id="doc-selected-day" class="surface" style="margin-top:16px;display:none"><div class="surface-head"><div><h3 id="doc-selected-title">Consultas do dia</h3><p id="doc-selected-subtitle"></p></div></div><div id="doc-selected-list" class="agenda-list"></div></div></div>
+    </section>
+
+    <section id="section-atendimento" class="doctor-section app-section">
+      <div class="page-head"><div><span class="page-label">ATENDIMENTO</span><h2>Atendimentos</h2><p>Consultas de hoje prontas para serem atendidas.</p></div></div>
+      <div class="surface"><div id="doctor-attendance-list" class="agenda-list"></div></div>
+    </section>
+
+    <section id="section-historico" class="doctor-section app-section">
+      <div class="page-head"><div><span class="page-label">HISTÓRICO</span><h2>Consultas realizadas</h2><p>Registros clínicos finalizados por você.</p></div></div>
+      <div class="surface"><div class="filter-bar"><div class="search-field"><i data-lucide="search"></i><input id="doctor-history-search" placeholder="Buscar paciente..."></div></div><div class="table-wrap"><table class="app-table"><thead><tr><th>Paciente</th><th>Data</th><th>Especialidade</th><th>Retorno</th><th></th></tr></thead><tbody id="doctor-history-table"></tbody></table></div></div>
+    </section>
+
+    <section id="section-perfil" class="doctor-section app-section">
+      <div class="page-head"><div><span class="page-label">CONTA</span><h2>Meu perfil</h2><p>Seus dados profissionais são administrados pela clínica.</p></div></div>
+      <div class="surface"><div class="profile-hero"><div id="doctor-profile-photo" class="profile-photo">M</div><div><h2 id="doctor-profile-name">Médico</h2><p id="doctor-profile-role">Especialidade</p><label class="btn btn-secondary" style="margin-top:10px;cursor:pointer"><i data-lucide="camera"></i>Alterar foto<input id="doctor-photo-input" type="file" accept="image/png,image/jpeg,image/webp" hidden></label></div></div><div class="info-section"><h3>Informações pessoais</h3><div class="info-list"><div class="info-item"><span>Nome completo</span><strong id="profile-name">—</strong></div><div class="info-item"><span>CPF</span><strong id="profile-cpf">—</strong></div><div class="info-item"><span>Telefone</span><strong id="profile-phone">—</strong></div><div class="info-item"><span>E-mail</span><strong id="profile-email">—</strong></div></div></div><div class="info-section"><h3>Informações profissionais</h3><div class="info-list"><div class="info-item"><span>CRM</span><strong id="profile-crm">—</strong></div><div class="info-item"><span>Especialidade</span><strong id="profile-specialty">—</strong></div><div class="info-item"><span>Valor da consulta</span><strong id="profile-price">—</strong></div><div class="info-item"><span>Status</span><strong id="profile-status">—</strong></div><div class="info-item"><span>Cadastro</span><strong id="profile-created">—</strong></div></div></div></div>
+    </section>
+  </main>
+</div>
+
+<div id="doctor-appointment-modal" class="app-modal-overlay"><div class="app-modal large"><div class="modal-head"><div><span class="page-label">ATENDIMENTO</span><h3 id="consult-title">Consulta</h3><p id="consult-subtitle"></p></div><button class="modal-close" data-close="doctor-appointment-modal"><i data-lucide="x"></i></button></div><div id="consult-summary" class="detail-grid"></div><div class="info-section"><h3>Registro da consulta</h3><form id="consult-form"><input id="consult-id" type="hidden"><div class="form-grid"><div class="form-field full"><label>Diagnóstico</label><textarea id="consult-diagnosis" class="app-textarea"></textarea></div><div class="form-field full"><label>Receita</label><textarea id="consult-prescription" class="app-textarea"></textarea></div><div class="form-field full"><label>Observações</label><textarea id="consult-notes" class="app-textarea"></textarea></div><div class="form-field"><label>Retorno</label><select id="consult-return"><option value="0">Não</option><option value="1">Sim</option></select></div><div class="form-field"><label>Data de retorno</label><input id="consult-return-date" type="date"></div></div><div id="consult-actions" class="modal-actions"><button id="print-prescription" class="btn btn-secondary" type="button"><i data-lucide="printer"></i>Imprimir receita</button><button id="save-consult" class="btn btn-secondary" type="button">Salvar</button><button id="finish-consult" class="btn btn-primary" type="button">Finalizar atendimento</button></div></form></div><div class="surface" style="margin-top:18px"><div class="surface-head"><div><h3>Histórico deste paciente</h3><p>Consultas anteriores com você</p></div></div><div id="patient-history-mini"></div></div></div></div>
+
+<script src="loader.js"></script><script src="ui.js"></script><script src="painel-medico.js"></script>
+</body></html>

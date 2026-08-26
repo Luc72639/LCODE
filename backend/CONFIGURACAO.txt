@@ -1,0 +1,24 @@
+CLÍNICA VIDA+ — BACKEND
+
+O projeto não guarda a senha do MySQL dentro do server.js.
+
+Opção mais fácil no Windows / PowerShell:
+1. Abra a pasta backend.
+2. Clique com o botão direito em iniciar.ps1 e execute com PowerShell
+   OU, no PowerShell, rode: .\iniciar.ps1
+3. Informe a senha do MySQL quando solicitado.
+
+Também é possível iniciar manualmente:
+$env:DB_PASSWORD="SUA_SENHA_DO_MYSQL"
+node server.js
+
+Variáveis opcionais:
+DB_HOST (padrão: localhost)
+DB_USER (padrão: root)
+DB_NAME (padrão: clinica_vida)
+PORT (padrão: 3000)
+SESSION_SECRET
+
+Na primeira inicialização, o servidor verifica e completa as colunas/tabelas necessárias
+sem apagar consultas existentes. A tabela agendamentos continua sendo a fonte central
+de consultas, histórico clínico e histórico financeiro.
