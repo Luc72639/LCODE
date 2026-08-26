@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administração — Clínica Vida+</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+</head>
+<body>
+<div id="page-loader" class="page-loader"><div class="loader-content"><div class="loader-logo">Vida<span>+</span></div><div class="loader-spinner"></div><p>Carregando...</p></div></div>
+
+<div class="admin-layout app-layout">
+  <aside class="admin-sidebar app-sidebar">
+    <div class="sidebar-brand">
+      <div class="sidebar-mark">+</div>
+      <div class="sidebar-brand-copy"><strong>Clínica Vida+</strong><small>Administração</small></div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <p class="menu-title">PRINCIPAL</p>
+      <button class="menu-item ativo" data-section="dashboard" title="Visão geral"><i data-lucide="layout-dashboard"></i><span class="sidebar-copy">Visão geral</span></button>
+      <button class="menu-item" data-section="agenda" title="Agenda"><i data-lucide="calendar-days"></i><span class="sidebar-copy">Agenda</span></button>
+      <button class="menu-item" data-section="agendamentos" title="Agendamentos"><i data-lucide="calendar-check"></i><span class="sidebar-copy">Agendamentos</span></button>
+      <button class="menu-item" data-section="pacientes" title="Pacientes"><i data-lucide="users"></i><span class="sidebar-copy">Pacientes</span></button>
+      <button class="menu-item" data-section="medicos" title="Médicos"><i data-lucide="stethoscope"></i><span class="sidebar-copy">Médicos</span></button>
+      <button class="menu-item" data-section="pagamentos" title="Pagamentos"><i data-lucide="wallet-cards"></i><span class="sidebar-copy">Pagamentos</span></button>
+      <button class="menu-item" data-section="relatorios" title="Relatórios"><i data-lucide="chart-no-axes-combined"></i><span class="sidebar-copy">Relatórios</span></button>
+      <p class="menu-title">SISTEMA</p>
+      <button class="menu-item" data-section="logs" title="Logs"><i data-lucide="list-checks"></i><span class="sidebar-copy">Logs</span></button>
+      <button class="menu-item" data-section="configuracoes" title="Configurações"><i data-lucide="settings"></i><span class="sidebar-copy">Configurações</span></button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user"><div class="sidebar-avatar" id="admin-avatar">A</div><div class="sidebar-user-copy"><strong id="admin-name">Administrador</strong><small>Administração</small></div></div>
+      <button id="logout" class="sidebar-logout" type="button"><i data-lucide="log-out"></i><span class="sidebar-copy">Sair</span></button>
+    </div>
+  </aside>
+
+  <main class="admin-main app-main">
+    <header class="admin-topbar app-topbar">
+      <div><h1 id="page-title">Visão geral</h1><p id="page-subtitle">Acompanhe o funcionamento da clínica.</p></div>
+    </header>
+
+    <section id="section-dashboard" class="admin-section app-section ativo">
+      <div class="page-head"><div><span class="page-label">HOJE</span><h2>Visão geral</h2><p id="dashboard-date">Resumo da operação da clínica.</p></div></div>
+      <div class="overview-row">
+        <div class="metric"><strong id="dash-hoje">0</strong><span>Consultas hoje</span></div>
+        <div class="metric"><strong id="dash-realizadas">0</strong><span>Realizadas</span></div>
+        <div class="metric"><strong id="dash-pendentes">0</strong><span>Pagamentos pendentes</span></div>
+        <div class="metric"><strong id="dash-recebido">R$ 0,00</strong><span>Recebido no mês</span></div>
+      </div>
+      <div class="overview-row overview-secondary">
+        <div class="metric"><strong id="dash-mes">0</strong><span>Consultas no mês</span></div>
+        <div class="metric"><strong id="dash-canceladas">0</strong><span>Canceladas</span></div>
+        <div class="metric"><strong id="dash-pacientes">0</strong><span>Pacientes cadastrados</span></div>
+        <div class="metric"><strong id="dash-medicos">0</strong><span>Médicos ativos</span></div>
+      </div>
+      <div class="dashboard-two-col" style="display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:16px;">
+        <div class="surface"><div class="surface-head"><div><h3>Agenda de hoje</h3><p>Consultas previstas para hoje</p></div><button class="btn btn-ghost" data-go="agenda" type="button">Ver agenda</button></div><div id="dashboard-agenda" class="agenda-list"></div></div>
+        <div class="surface"><div class="surface-head"><div><h3>Atividade recente</h3><p>Últimas ações importantes</p></div></div><div id="dashboard-logs"></div></div>
+      </div>
+    </section>
+
+    <section id="section-agenda" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">AGENDA</span><h2>Agenda da clínica</h2><p>Visualize consultas por dia, semana ou mês.</p></div></div>
+      <div class="surface">
+        <div class="calendar-toolbar">
+          <div style="display:flex;align-items:center;gap:8px"><button id="agenda-prev" class="icon-button" type="button"><i data-lucide="chevron-left"></i></button><button id="agenda-today" class="btn btn-secondary" type="button">Hoje</button><button id="agenda-next" class="icon-button" type="button"><i data-lucide="chevron-right"></i></button><strong id="agenda-title"></strong></div>
+          <div class="segmented"><button data-agenda-view="day" type="button">Dia</button><button data-agenda-view="week" type="button">Semana</button><button class="active" data-agenda-view="month" type="button">Mês</button></div>
+        </div>
+        <div id="agenda-calendar-wrap" class="calendar-scroll"><div id="agenda-calendar" class="simple-calendar"></div></div>
+        <div id="agenda-list-view" class="agenda-list" hidden></div>
+      </div>
+    </section>
+
+    <section id="section-agendamentos" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">CONSULTAS</span><h2>Agendamentos</h2><p>Busque, filtre e abra os detalhes de qualquer consulta.</p></div></div>
+      <div class="surface">
+        <div class="filter-bar"><div class="search-field"><i data-lucide="search"></i><input id="appointments-search" placeholder="Buscar paciente ou médico..."></div><select id="appointments-status"><option value="">Todos os status</option><option value="agendada">Agendada</option><option value="confirmada">Confirmada</option><option value="realizada">Realizada</option><option value="cancelada">Cancelada</option></select><select id="appointments-doctor"><option value="">Todos os médicos</option></select><input id="appointments-date" type="date"><button id="appointments-clear" class="btn btn-secondary" type="button">Limpar</button></div>
+        <div class="table-wrap"><table class="app-table"><thead><tr><th>Paciente</th><th>Médico</th><th>Data</th><th>Status</th><th>Pagamento</th><th></th></tr></thead><tbody id="appointments-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="section-pacientes" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">CADASTROS</span><h2>Pacientes</h2><p>Consulte dados, agendamentos e histórico.</p></div></div>
+      <div class="surface"><div class="filter-bar"><div class="search-field"><i data-lucide="search"></i><input id="patients-search" placeholder="Buscar por nome, CPF, telefone ou e-mail..."></div></div><div class="table-wrap"><table class="app-table"><thead><tr><th>Paciente</th><th>Telefone</th><th>Última consulta</th><th>Próxima consulta</th><th>Status</th><th></th></tr></thead><tbody id="patients-table"></tbody></table></div></div>
+    </section>
+
+    <section id="section-medicos" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">EQUIPE</span><h2>Médicos</h2><p>Gerencie profissionais e disponibilidade.</p></div><button id="new-doctor" class="btn btn-primary" type="button"><i data-lucide="plus"></i>Novo médico</button></div>
+      <div class="surface"><div class="filter-bar"><div class="search-field"><i data-lucide="search"></i><input id="doctors-search" placeholder="Buscar médico, especialidade ou CRM..."></div><select id="doctors-status"><option value="">Todos</option><option value="ativo">Ativos</option><option value="inativo">Inativos</option></select></div><div class="table-wrap"><table class="app-table"><thead><tr><th>Médico</th><th>Especialidade</th><th>Valor</th><th>Hoje</th><th>Realizadas</th><th>Status</th><th></th></tr></thead><tbody id="doctors-table"></tbody></table></div></div>
+    </section>
+
+    <section id="section-pagamentos" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">FINANCEIRO</span><h2>Pagamentos</h2><p>Confirme apenas pagamentos realizados presencialmente.</p></div></div>
+      <div class="surface"><div class="filter-bar"><select id="payments-status"><option value="">Todos os pagamentos</option><option value="pendente">Pendentes</option><option value="pago">Pagos</option></select></div><div class="table-wrap"><table class="app-table"><thead><tr><th>Paciente</th><th>Médico</th><th>Consulta</th><th>Valor</th><th>Status</th><th>Confirmado em</th><th></th></tr></thead><tbody id="payments-table"></tbody></table></div></div>
+    </section>
+
+    <section id="section-relatorios" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">RELATÓRIOS</span><h2>Relatórios</h2><p>Indicadores simples para acompanhar a operação.</p></div></div>
+      <div class="surface"><div class="filter-bar"><input id="report-start" type="date"><input id="report-end" type="date"><select id="report-doctor"><option value="">Todos os médicos</option></select><button id="report-run" class="btn btn-primary" type="button">Atualizar</button></div><div id="report-metrics" class="overview-row"></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px" class="reports-grid"><div class="surface"><div class="surface-head"><div><h3>Faturamento mensal</h3><p>Somente pagamentos confirmados</p></div></div><div id="report-monthly-chart"></div></div><div class="surface"><div class="surface-head"><div><h3>Consultas por médico</h3><p>Volume no período selecionado</p></div></div><div id="report-doctor-chart"></div></div></div>
+    </section>
+
+    <section id="section-logs" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">SISTEMA</span><h2>Logs administrativos</h2><p>Registro simples de ações importantes.</p></div></div>
+      <div class="surface"><div class="table-wrap"><table class="app-table"><thead><tr><th>Data</th><th>Usuário</th><th>Perfil</th><th>Ação</th></tr></thead><tbody id="logs-table"></tbody></table></div></div>
+    </section>
+
+    <section id="section-configuracoes" class="admin-section app-section">
+      <div class="page-head"><div><span class="page-label">SISTEMA</span><h2>Configurações</h2><p>Informações gerais utilizadas pela Clínica Vida+.</p></div></div>
+      <div class="surface" style="max-width:780px"><form id="settings-form"><div class="form-grid"><div class="form-field full"><label>Nome da clínica</label><input id="setting-name" required></div><div class="form-field"><label>Telefone</label><input id="setting-phone"></div><div class="form-field"><label>E-mail</label><input id="setting-email" type="email"></div><div class="form-field full"><label>Endereço</label><input id="setting-address"></div><div class="form-field full"><label>Horário de funcionamento</label><input id="setting-hours"></div><div class="form-field full"><label>Logo</label><input id="setting-logo-file" type="file" accept="image/png,image/jpeg,image/webp"><input id="setting-logo" type="hidden"><small style="color:var(--muted)">PNG, JPG ou WEBP de até 2 MB.</small></div></div><div class="modal-actions"><button class="btn btn-primary" type="submit">Salvar configurações</button></div></form></div>
+    </section>
+  </main>
+</div>
+
+<!-- MODAL CONSULTA -->
+<div id="appointment-modal" class="app-modal-overlay"><div class="app-modal large"><div class="modal-head"><div><span class="page-label">CONSULTA</span><h3 id="appointment-modal-title">Detalhes da consulta</h3><p id="appointment-modal-subtitle"></p></div><button class="modal-close" data-close="appointment-modal"><i data-lucide="x"></i></button></div><div id="appointment-detail" class="detail-grid"></div><div id="appointment-actions" class="modal-actions"></div></div></div>
+
+<!-- MODAL PACIENTE -->
+<div id="patient-modal" class="app-modal-overlay"><div class="app-modal large"><div class="modal-head"><div><span class="page-label">PACIENTE</span><h3 id="patient-modal-title">Perfil do paciente</h3><p>Dados administrativos e histórico de consultas.</p></div><button class="modal-close" data-close="patient-modal"><i data-lucide="x"></i></button></div><form id="patient-form"><input id="patient-id" type="hidden"><div class="form-grid"><div class="form-field full"><label>Nome completo</label><input id="patient-name" required></div><div class="form-field"><label>CPF</label><input id="patient-cpf"></div><div class="form-field"><label>Data de nascimento</label><input id="patient-birth" type="date"></div><div class="form-field"><label>Telefone</label><input id="patient-phone"></div><div class="form-field"><label>E-mail</label><input id="patient-email" type="email" required></div><div class="form-field full"><label>Endereço</label><input id="patient-address"></div><div class="form-field"><label>Status</label><select id="patient-active"><option value="1">Ativo</option><option value="0">Inativo</option></select></div></div><div class="modal-actions"><button class="btn btn-primary" type="submit">Salvar alterações</button></div></form><div class="surface" style="margin-top:18px"><div class="surface-head"><div><h3>Consultas</h3><p>Agendamentos e histórico do paciente</p></div></div><div id="patient-consultations" class="agenda-list"></div></div></div></div>
+
+<!-- MODAL MÉDICO -->
+<div id="doctor-modal" class="app-modal-overlay"><div class="app-modal large"><div class="modal-head"><div><span class="page-label">MÉDICO</span><h3 id="doctor-modal-title">Perfil do médico</h3><p>Dados profissionais e situação de acesso.</p></div><button class="modal-close" data-close="doctor-modal"><i data-lucide="x"></i></button></div><div id="doctor-profile-summary"></div><form id="doctor-form"><input id="doctor-id" type="hidden"><div class="form-grid"><div class="form-field full"><label>Nome completo</label><input id="doctor-name" required></div><div class="form-field"><label>CPF</label><input id="doctor-cpf"></div><div class="form-field"><label>CRM</label><input id="doctor-crm"></div><div class="form-field"><label>Telefone</label><input id="doctor-phone"></div><div class="form-field"><label>E-mail</label><input id="doctor-email" type="email" required></div><div class="form-field"><label>Especialidade</label><input id="doctor-specialty" required></div><div class="form-field"><label>Valor da consulta</label><input id="doctor-price" type="number" min="0" step="0.01" required></div></div><div class="modal-actions"><button id="doctor-status-action" class="btn btn-secondary" type="button"></button><button class="btn btn-primary" type="submit">Salvar alterações</button></div></form></div></div>
+
+<!-- MODAL NOVO MÉDICO -->
+<div id="new-doctor-modal" class="app-modal-overlay"><div class="app-modal"><div class="modal-head"><div><span class="page-label">NOVO CADASTRO</span><h3>Cadastrar médico</h3><p>Crie o acesso profissional e defina o valor da consulta.</p></div><button class="modal-close" data-close="new-doctor-modal"><i data-lucide="x"></i></button></div><form id="new-doctor-form"><div class="form-grid"><div class="form-field full"><label>Nome completo</label><input id="new-doctor-name" required></div><div class="form-field"><label>E-mail</label><input id="new-doctor-email" type="email" required></div><div class="form-field"><label>Senha inicial</label><input id="new-doctor-password" type="password" minlength="8" required></div><div class="form-field"><label>Especialidade</label><input id="new-doctor-specialty" required></div><div class="form-field"><label>Valor da consulta</label><input id="new-doctor-price" type="number" min="0" step="0.01" required></div><div class="form-field"><label>CPF</label><input id="new-doctor-cpf"></div><div class="form-field"><label>CRM</label><input id="new-doctor-crm"></div><div class="form-field"><label>Telefone</label><input id="new-doctor-phone"></div></div><div class="modal-actions"><button class="btn btn-secondary" type="button" data-close="new-doctor-modal">Cancelar</button><button class="btn btn-primary" type="submit">Cadastrar médico</button></div></form></div></div>
+
+<script src="loader.js"></script>
+<script src="ui.js"></script>
+<script src="painel-admin.js"></script>
+</body>
+</html>
