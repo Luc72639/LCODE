@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Clínica Vida+ — atendimento médico especializado, humanizado e moderno."
+    >
+
+    <title>Clínica Vida+ | Saúde e Bem-Estar</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ========================================
+           NOTIFICAÇÕES
+        ======================================== */
+
+        .form-notification {
+            display: none;
+            margin-bottom: 24px;
+            padding: 16px 18px;
+            border-radius: 14px;
+            font-size: 14px;
+            line-height: 1.5;
+            animation: notificationAppear 0.3s ease;
+        }
+
+        .form-notification.show {
+            display: block;
+        }
+
+        .form-notification.success {
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #047857;
+        }
+
+        .form-notification.error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #b91c1c;
+        }
+
+        .form-notification.warning {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #b45309;
+        }
+
+        .notification-title {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        @keyframes notificationAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* ========================================
+           VALOR DA CONSULTA
+        ======================================== */
+
+        .consultation-price {
+            display: none;
+            margin-top: 18px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .consultation-price.show {
+            display: block;
+        }
+
+        .consultation-price-label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 5px;
+            opacity: 0.7;
+        }
+
+        .consultation-price-value {
+            display: block;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+
+        /* ========================================
+           CONFIRMAÇÃO DO AGENDAMENTO
+        ======================================== */
+
+        .appointment-confirmation {
+            display: none;
+            margin-top: 24px;
+            padding: 22px;
+            border-radius: 18px;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            animation: notificationAppear 0.3s ease;
+        }
+
+        .appointment-confirmation.show {
+            display: block;
+        }
+
+        .appointment-confirmation h3 {
+            margin: 0 0 14px;
+        }
+
+        .confirmation-item {
+            margin-bottom: 8px;
+        }
+
+        .confirmation-item strong {
+            font-weight: 700;
+        }
+
+    </style>
+
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         LOADER
+    ======================================== -->
+
+    <div id="page-loader" class="page-loader">
+
+        <div class="loader-content">
+
+            <div class="loader-logo">
+                Vida<span>+</span>
+            </div>
+
+            <div class="loader-spinner"></div>
+
+            <p>Carregando...</p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ========================================
+         HEADER
+    ======================================== -->
+
+    <header class="header">
+
+        <div class="container header-content">
+
+            <a href="#" class="logo">
+                <span>Vida</span>+
+            </a>
+
+
+            <nav class="nav">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#especialidades">
+                    Especialidades
+                </a>
+
+                <a href="#equipe">
+                    Equipe
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </nav>
+
+
+            <div class="header-actions">
+
+                <a
+                    href="login.html"
+                    id="account-link"
+                    class="team-button"
+                >
+                    Entrar
+                </a>
+
+                <button class="icon-button public-menu-button" id="public-menu-button" type="button" title="Abrir menu"><i data-lucide="menu"></i></button>
+
+                <button class="icon-button public-theme-button" type="button" data-theme-toggle title="Alternar tema"><span data-theme-icon></span></button>
+
+                <a
+                    href="#agendamento"
+                    class="header-button"
+                >
+                    Agendar consulta
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- ========================================
+             HERO
+        ======================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <span class="hero-tag">
+                        Cuidado que transforma
+                    </span>
+
+                    <h1>
+                        Cuidado simples. Atendimento de verdade.
+                    </h1>
+
+                    <p>
+                        Agende sua consulta de forma rápida e acompanhe tudo pelo nosso sistema.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#agendamento"
+                            class="btn btn-primary"
+                        >
+                            Agendar consulta
+                        </a>
+
+                        <a
+                            href="#especialidades"
+                            class="btn btn-secondary"
+                        >
+                            Conheça nossas especialidades
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-image">
+
+                    <img
+                        src="img/hero-clinica.jpg"
+                        alt="Profissional de saúde atendendo uma paciente"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             ESPECIALIDADES
+        ======================================== -->
+
+        <section
+            class="specialties"
+            id="especialidades"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        Especialidades
+                    </span>
+
+                    <h2>
+                        Cuidado completo para você
+                    </h2>
+
+                    <p>
+                        Conte com profissionais especializados
+                        para cuidar da sua saúde.
+                    </p>
+
+                </div>
+
+
+                <div class="specialties-grid">
+
+
+                    <article class="specialty-card">
+
+                        <div class="card-icon">
+                            <i data-lucide="heart-pulse"></i>
+                        </div>
+
+                        <h3>
+                            Cardiologia
+                        </h3>
+
+                        <p>
+                            Prevenção, diagnóstico e tratamento
+                            das doenças cardiovasculares.
+                        </p>
+
+                        <a href="#agendamento">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="specialty-card">
+
+                        <div class="card-icon">
+                            <i data-lucide="stethoscope"></i>
+                        </div>
+
+                        <h3>
+                            Clínica Geral
+                        </h3>
+
+                        <p>
+                            Atendimento completo para avaliação
+                            e acompanhamento da sua saúde.
+                        </p>
+
+                        <a href="#agendamento">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="specialty-card">
+
+                        <div class="card-icon">
+                            <i data-lucide="sparkles"></i>
+                        </div>
+
+                        <h3>
+                            Dermatologia
+                        </h3>
+
+                        <p>
+                            Cuidados especializados para a saúde
+                            e o bem-estar da sua pele.
+                        </p>
+
+                        <a href="#agendamento">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                    <article class="specialty-card">
+
+                        <div class="card-icon">
+                            <i data-lucide="baby"></i>
+                        </div>
+
+                        <h3>
+                            Pediatria
+                        </h3>
+
+                        <p>
+                            Atendimento dedicado à saúde e ao
+                            desenvolvimento das crianças.
+                        </p>
+
+                        <a href="#agendamento">
+                            Saiba mais →
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             SOBRE
+        ======================================== -->
+
+        <section
+            class="about"
+            id="sobre"
+        >
+
+            <div class="container about-content">
+
+                <div class="about-image">
+
+                    <img
+                        src="img/about-clinica.jpg"
+                        alt="Interior moderno da Clínica Vida+"
+                    >
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <span class="section-tag">
+                        Sobre nós
+                    </span>
+
+                    <h2>
+                        Tecnologia e humanidade no mesmo lugar.
+                    </h2>
+
+                    <p>
+                        Na Clínica Vida+, acreditamos que cuidar
+                        da saúde vai muito além de tratar doenças.
+                    </p>
+
+                    <p>
+                        Unimos profissionais qualificados,
+                        tecnologia moderna e atendimento
+                        humanizado para oferecer uma experiência
+                        completa aos nossos pacientes.
+                    </p>
+
+
+                    <div class="about-features">
+
+                        <div>
+
+                            <strong>
+                                +10
+                            </strong>
+
+                            <span>
+                                Anos de experiência
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                +20
+                            </strong>
+
+                            <span>
+                                Especialistas
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                +5 mil
+                            </strong>
+
+                            <span>
+                                Pacientes atendidos
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             EQUIPE
+        ======================================== -->
+
+        <section
+            class="team"
+            id="equipe"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        Nossa equipe
+                    </span>
+
+                    <h2>
+                        Profissionais que cuidam de você
+                    </h2>
+
+                    <p>
+                        Conheça alguns dos nossos especialistas.
+                    </p>
+
+                </div>
+
+
+                <div class="team-grid">
+
+
+                    <article class="doctor-card">
+
+                        <img
+                            src="img/doctor-1.jpg"
+                            alt="Dra. Mariana Silva"
+                        >
+
+                        <div class="doctor-info">
+
+                            <span>
+                                Cardiologista
+                            </span>
+
+                            <h3>
+                                Dra. Mariana Silva
+                            </h3>
+
+                            <p>
+                                CRM 00000
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="doctor-card">
+
+                        <img
+                            src="img/doctor-2.jpg"
+                            alt="Dr. Lucas Mendes"
+                        >
+
+                        <div class="doctor-info">
+
+                            <span>
+                                Clínico Geral
+                            </span>
+
+                            <h3>
+                                Dr. Lucas Mendes
+                            </h3>
+
+                            <p>
+                                CRM 00000
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="doctor-card">
+
+                        <img
+                            src="img/doctor-3.jpg"
+                            alt="Dra. Ana Costa"
+                        >
+
+                        <div class="doctor-info">
+
+                            <span>
+                                Dermatologista
+                            </span>
+
+                            <h3>
+                                Dra. Ana Costa
+                            </h3>
+
+                            <p>
+                                CRM 00000
+                            </p>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             AGENDAMENTO
+        ======================================== -->
+
+        <section
+            class="appointment"
+            id="agendamento"
+        >
+
+            <div class="container appointment-content">
+
+
+                <div class="appointment-text">
+
+                    <span class="section-tag">
+                        Agendamento
+                    </span>
+
+                    <h2>
+                        Cuide da sua saúde hoje.
+                    </h2>
+
+                    <p>
+                        Escolha a especialidade, o profissional
+                        e o melhor horário para sua consulta.
+                    </p>
+
+
+                    <div
+                        id="consultation-price"
+                        class="consultation-price"
+                    >
+
+                        <span class="consultation-price-label">
+                            Valor da consulta
+                        </span>
+
+                        <span
+                            id="consultation-price-value"
+                            class="consultation-price-value"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div style="width: 100%;">
+
+
+                    <!-- NOTIFICAÇÃO -->
+
+                    <div
+                        id="form-notification"
+                        class="form-notification"
+                    ></div>
+
+
+                    <!-- CONFIRMAÇÃO -->
+
+                    <div
+                        id="appointment-confirmation"
+                        class="appointment-confirmation"
+                    ></div>
+
+
+                    <form class="appointment-form">
+
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Nome completo
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Digite seu nome"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                E-mail
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="seu@email.com"
+                            >
+
+                        </div>
+
+
+                        <div class="form-row">
+
+
+                            <div class="form-group">
+
+                                <label for="specialty">
+                                    Especialidade
+                                </label>
+
+                                <select
+                                    id="specialty"
+                                    name="specialty"
+                                >
+
+                                    <option value="">
+                                        Selecione
+                                    </option>
+
+                                    <option value="cardiologia">
+                                        Cardiologia
+                                    </option>
+
+                                    <option value="clinica-geral">
+                                        Clínica Geral
+                                    </option>
+
+                                    <option value="dermatologia">
+                                        Dermatologia
+                                    </option>
+
+                                    <option value="pediatria">
+                                        Pediatria
+                                    </option>
+
+                                    <option value="psicologia">
+                                        Psicologia
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="doctor">
+                                    Médico
+                                </label>
+
+                                <select
+                                    id="doctor"
+                                    name="doctor"
+                                    disabled
+                                >
+
+                                    <option value="">
+                                        Primeiro selecione uma especialidade
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="date">
+                                    Data
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="date"
+                                    name="date"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Horários disponíveis
+                            </label>
+
+                            <div
+                                id="available-times"
+                                class="available-times"
+                            >
+
+                                <p class="time-placeholder">
+                                    Selecione um médico e uma data.
+                                </p>
+
+                            </div>
+
+
+                            <input
+                                type="hidden"
+                                id="time"
+                                name="time"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="motivo-consulta">
+                                Como você está se sentindo?
+                            </label>
+
+                            <textarea
+                                id="motivo-consulta"
+                                name="motivo-consulta"
+                                rows="4"
+                                placeholder="Descreva seus sintomas, dores, desconfortos ou o motivo da consulta..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Solicitar agendamento
+                        </button>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================
+             CONTATO
+        ======================================== -->
+
+        <section
+            class="contact"
+            id="contato"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-tag">
+                        Contato
+                    </span>
+
+                    <h2>
+                        Estamos aqui para ajudar
+                    </h2>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <div class="contact-card">
+
+                        <span>
+                            <i data-lucide="map-pin"></i>
+                        </span>
+
+                        <h3>
+                            Endereço
+                        </h3>
+
+                        <p id="public-address">
+                            Av. Central, 1000<br>
+                            Centro — Caxias do Sul
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <span>
+                            <i data-lucide="phone"></i>
+                        </span>
+
+                        <h3>
+                            Telefone
+                        </h3>
+
+                        <p id="public-phone">
+                            (54) 3000-0000
+                        </p>
+
+                    </div>
+
+
+                    <div class="contact-card">
+
+                        <span>
+                            <i data-lucide="mail"></i>
+                        </span>
+
+                        <h3>
+                            E-mail
+                        </h3>
+
+                        <p id="public-email">
+                            contato@clinicavida.com
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <a
+                    href="#"
+                    class="logo footer-logo"
+                >
+                    <span>Vida</span>+
+                </a>
+
+                <p>
+                    Cuidado, tecnologia e saúde.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#especialidades">
+                    Especialidades
+                </a>
+
+                <a href="#equipe">
+                    Equipe
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
+                <a href="#contato">
+                    Contato
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <p>
+                © 2026 Clínica Vida+. Todos os direitos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="loader.js"></script>
+
+    <script src="ui.js"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
