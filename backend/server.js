@@ -9,11 +9,26 @@ const app = express();
 const PORT = Number(process.env.PORT || 3000);
 const ROOT = path.join(__dirname, '..');
 
+const usarSsl = String(process.env.DB_SSL || '').toLowerCase() === 'true';
+
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
+  port: Number(process.env.DB_PORT || 3306),
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'clinica_vida',
+
+  ssl: usarSsl
+    ? {
+        rejectUnauthorized: true,
+        ...(process.env.DB_CA
+          ? {
+              ca: process.env.DB_CA.replace(/\\n/g, '\n')
+            }
+          : {})
+      }
+    : undefined,
+
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -22,6 +37,9 @@ const pool = mysql.createPool({
 });
 
 app.disable('x-powered-by');
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
