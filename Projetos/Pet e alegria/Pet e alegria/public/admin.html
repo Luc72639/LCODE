@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin | Pet e Alegria</title>
+  <link rel="stylesheet" href="/assets/css/app.css">
+  <link rel="icon" href="/assets/images/logo-pet-e-alegria.webp">
+</head>
+<body class="admin-shell">
+  <div data-login-view>
+    <div class="admin-top">
+      <div class="container">
+        <a class="brand" href="/">
+          <img src="/assets/images/logo-pet-e-alegria.webp" alt="">
+          <span class="brand-copy"><strong>Pet e Alegria</strong><span style="color:#9eb0a7">Administração</span></span>
+        </a>
+        <a href="/" class="btn btn-secondary btn-small">Voltar ao site</a>
+      </div>
+    </div>
+    <main class="container">
+      <div class="admin-login">
+        <span class="eyebrow">Acesso protegido</span>
+        <h2>Área administrativa</h2>
+        <p class="text-muted">Entre com a conta de administrador. A autenticação usa senha criptografada e sessão armazenada no MySQL.</p>
+        <form id="adminLoginForm">
+          <div class="field">
+            <label for="adminEmail">E-mail</label>
+            <input class="input" id="adminEmail" name="email" type="email" autocomplete="username" required>
+          </div>
+          <div class="field" style="margin-top:14px">
+            <label for="adminPassword">Senha</label>
+            <input class="input" id="adminPassword" name="senha" type="password" autocomplete="current-password" required>
+          </div>
+          <div class="notice hidden" data-login-notice></div>
+          <button class="btn btn-primary" style="margin-top:16px" type="submit">Entrar</button>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <div class="hidden" data-admin-view>
+    <div class="admin-top">
+      <div class="container">
+        <div>
+          <strong>Pet e Alegria</strong>
+          <div style="color:#9eb0a7;font-size:.82rem">Painel administrativo · <span data-admin-name>Administrador</span></div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn btn-secondary btn-small" href="/" target="_blank">Abrir site</a>
+          <button class="btn btn-accent btn-small" data-logout>Sair</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container admin-grid">
+      <aside class="admin-side">
+        <button class="active" data-admin-tab="dashboard">Dashboard</button>
+        <button data-admin-tab="animais">Animais</button>
+        <button data-admin-tab="solicitacoes">Solicitações</button>
+        <button data-admin-tab="interesses">Interessados</button>
+        <button data-admin-tab="logs">Atividades</button>
+        <button data-admin-tab="conta">Conta</button>
+      </aside>
+
+      <main class="admin-main">
+        <section data-admin-panel="dashboard">
+          <div class="section-head">
+            <span class="eyebrow">Visão geral</span>
+            <h2>Dashboard</h2>
+            <p class="text-muted">Acompanhe os principais números da plataforma de adoção.</p>
+          </div>
+          <div class="admin-stats">
+            <div class="admin-stat"><span class="text-muted">Disponíveis</span><strong data-stat-available>0</strong></div>
+            <div class="admin-stat"><span class="text-muted">Solicitações pendentes</span><strong data-stat-requests>0</strong></div>
+            <div class="admin-stat"><span class="text-muted">Novos interessados</span><strong data-stat-interests>0</strong></div>
+            <div class="admin-stat"><span class="text-muted">Adotados</span><strong data-stat-adopted>0</strong></div>
+          </div>
+          <div class="form-card">
+            <h3>Sistema conectado ao MySQL</h3>
+            <p class="text-muted">Animais, solicitações, interessados, sessões administrativas e registros de atividade são persistidos no banco. Aprovar uma solicitação cria automaticamente o animal na área pública.</p>
+          </div>
+        </section>
+
+        <section class="hidden" data-admin-panel="animais">
+          <div class="section-head"><span class="eyebrow">Adoção</span><h2>Animais</h2></div>
+          <div class="form-card" style="margin-bottom:20px">
+            <h3>Cadastrar animal</h3>
+            <form id="adminAnimalForm" class="form-grid">
+              <div class="field"><label>Nome</label><input class="input" name="nome" required></div>
+              <div class="field"><label>Tipo</label><select class="select" name="tipo"><option value="cachorro">Cachorro</option><option value="gato">Gato</option></select></div>
+              <div class="field"><label>Raça</label><input class="input" name="raca" required></div>
+              <div class="field"><label>Idade</label><input class="input" name="idade" required></div>
+              <div class="field"><label>Sexo</label><select class="select" name="sexo"><option value="macho">Macho</option><option value="femea">Fêmea</option></select></div>
+              <div class="field"><label>Porte</label><select class="select" name="porte"><option value="pequeno">Pequeno</option><option value="medio">Médio</option><option value="grande">Grande</option></select></div>
+              <div class="field full"><label>Descrição</label><textarea class="textarea" name="descricao"></textarea></div>
+              <div class="field full"><label>URL da imagem (opcional)</label><input class="input" name="imagemUrl" type="url"></div>
+              <div><label><input type="checkbox" name="vacinado"> Vacinado</label></div>
+              <div><label><input type="checkbox" name="castrado"> Castrado</label></div>
+              <div class="full notice hidden" data-form-notice></div>
+              <div class="full"><button class="btn btn-primary" type="submit">Cadastrar</button></div>
+            </form>
+          </div>
+          <div class="table-wrap"><table><thead><tr><th>Nome</th><th>Tipo</th><th>Raça</th><th>Idade</th><th>Status</th><th>Ações</th></tr></thead><tbody data-animal-rows></tbody></table></div>
+        </section>
+
+        <section class="hidden" data-admin-panel="solicitacoes">
+          <div class="section-head"><span class="eyebrow">Moderação</span><h2>Solicitações de anúncio</h2><p class="text-muted">Uma solicitação só entra na adoção depois da aprovação administrativa.</p></div>
+          <div class="table-wrap"><table><thead><tr><th>Animal</th><th>Tipo</th><th>Responsável</th><th>Contato</th><th>Status</th><th>Ações</th></tr></thead><tbody data-request-rows></tbody></table></div>
+        </section>
+
+        <section class="hidden" data-admin-panel="interesses">
+          <div class="section-head"><span class="eyebrow">Adoção</span><h2>Interessados</h2><p class="text-muted">Organize o andamento dos contatos de adoção.</p></div>
+          <div class="table-wrap"><table><thead><tr><th>Animal</th><th>Interessado</th><th>Telefone</th><th>E-mail</th><th>Mensagem</th><th>Status</th><th>Ações</th></tr></thead><tbody data-interest-rows></tbody></table></div>
+        </section>
+
+        <section class="hidden" data-admin-panel="logs">
+          <div class="section-head"><span class="eyebrow">Auditoria simples</span><h2>Atividades</h2><p class="text-muted">Últimas ações realizadas no painel administrativo.</p></div>
+          <div class="table-wrap"><table><thead><tr><th>Data</th><th>Administrador</th><th>Ação</th><th>Detalhes</th></tr></thead><tbody data-log-rows></tbody></table></div>
+        </section>
+
+        <section class="hidden" data-admin-panel="conta">
+          <div class="section-head"><span class="eyebrow">Segurança</span><h2>Minha conta</h2></div>
+          <div class="form-card" style="max-width:620px">
+            <div style="margin-bottom:24px">
+              <strong data-account-name>Administrador</strong>
+              <div class="text-muted" data-account-email></div>
+            </div>
+            <h3>Alterar senha</h3>
+            <form id="changePasswordForm">
+              <div class="field"><label>Senha atual</label><input class="input" name="senhaAtual" type="password" autocomplete="current-password" required></div>
+              <div class="field" style="margin-top:14px"><label>Nova senha</label><input class="input" name="novaSenha" type="password" autocomplete="new-password" minlength="10" required></div>
+              <div class="notice hidden" data-password-notice></div>
+              <button class="btn btn-primary" style="margin-top:16px" type="submit">Alterar senha</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+
+  <div class="modal" id="editAnimalModal" role="dialog" aria-modal="true" aria-labelledby="editAnimalTitle">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div><strong id="editAnimalTitle">Editar animal</strong><div class="text-muted">Atualize os dados exibidos na adoção.</div></div>
+        <button class="icon-btn" type="button" data-close-edit-animal aria-label="Fechar">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="editAnimalForm" class="form-grid">
+          <input type="hidden" name="id">
+          <div class="field"><label>Nome</label><input class="input" name="nome" required></div>
+          <div class="field"><label>Tipo</label><select class="select" name="tipo" required><option value="cachorro">Cachorro</option><option value="gato">Gato</option></select></div>
+          <div class="field"><label>Raça</label><input class="input" name="raca" required></div>
+          <div class="field"><label>Idade</label><input class="input" name="idade" required></div>
+          <div class="field"><label>Sexo</label><select class="select" name="sexo" required><option value="macho">Macho</option><option value="femea">Fêmea</option></select></div>
+          <div class="field"><label>Porte</label><select class="select" name="porte" required><option value="pequeno">Pequeno</option><option value="medio">Médio</option><option value="grande">Grande</option></select></div>
+          <div class="field"><label>Status</label><select class="select" name="status"><option value="disponivel">Disponível</option><option value="adotado">Adotado</option><option value="indisponivel">Indisponível</option></select></div>
+          <div class="field" style="align-content:end"><label><input type="checkbox" name="vacinado"> Vacinado</label><label><input type="checkbox" name="castrado"> Castrado</label></div>
+          <div class="field full"><label>Descrição</label><textarea class="textarea" name="descricao"></textarea></div>
+          <div class="field full"><label>URL da imagem (HTTPS, opcional)</label><input class="input" name="imagemUrl" type="url" placeholder="https://..."></div>
+          <div class="full notice hidden" data-edit-notice></div>
+          <div class="full" style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap"><button class="btn btn-secondary" type="button" data-close-edit-animal>Cancelar</button><button class="btn btn-primary" type="submit">Salvar alterações</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/admin.js"></script>
+</body>
+</html>

@@ -10,7 +10,8 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "express": "^5.2.1",
+    "express-mysql-session": "^3.0.3",
     "express-session": "^1.19.0",
-    "mysql2": "^3.23.2"
+    "mysql2": "^3.24.2"
   }
 }

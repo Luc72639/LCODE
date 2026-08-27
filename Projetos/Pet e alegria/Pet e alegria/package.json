@@ -1,0 +1,25 @@
+{
+  "name": "pet-e-alegria-lcode",
+  "version": "5.0.0",
+  "private": true,
+  "description": "Pet shop ficticio com adocao responsavel, painel administrativo e MySQL — LCODE.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "check": "node --check server.js && node --check src/db.js && node --check src/store/mysqlStore.js && node --check src/session/mysqlSessionStore.js && node --check src/middleware/adminSession.js && node --check src/utils/validation.js && node --check public/assets/js/main.js && node --check public/assets/js/home.js && node --check public/assets/js/adocao.js && node --check public/assets/js/admin.js",
+    "db:check": "node scripts/check-db.js"
+  },
+  "engines": {
+    "node": ">=18.16"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "dotenv": "^16.6.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "express-session": "^1.18.2",
+    "helmet": "^8.1.0",
+    "mysql2": "^3.14.5"
+  }
+}
