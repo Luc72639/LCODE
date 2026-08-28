@@ -1,0 +1,14 @@
+COMO USAR (PASSO A PASSO SIMPLES)
+
+1. Extraia este ZIP.
+2. Entre no GitHub.
+3. Crie um repositório com o MESMO NOME do seu usuário.
+4. Abra esse repositório.
+5. Clique em Add file > Upload files.
+6. Envie o README.md e a pasta assets.
+7. Clique em Commit changes.
+8. Pronto: o README vai aparecer no seu perfil.
+
+IMPORTANTE:
+- Se você já tiver um README no repositório do perfil, substitua pelo README.md deste pacote.
+- Este pacote já está pronto para uso.
