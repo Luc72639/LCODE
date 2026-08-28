@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucas Machado Gonçalves — LCODE | Desenvolvedor Web Full Stack</title>
+<meta name="description" content="Lucas Machado Gonçalves, desenvolvedor web full stack e fundador da LCODE. Sites profissionais, sistemas personalizados, APIs e soluções digitais.">
+<meta name="theme-color" content="#0F172A">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="dark">
+
+<!-- ===== CURSOR GLOW ===== -->
+<div class="cursor-glow" aria-hidden="true"></div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span class="brand-name">LCODE</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#top" class="nav-link active" data-nav>Início</a>
+      <a href="#sobre" class="nav-link" data-nav>Sobre</a>
+      <a href="#tecnologias" class="nav-link" data-nav>Tecnologias</a>
+      <a href="#projetos" class="nav-link" data-nav>Projetos</a>
+      <a href="#servicos" class="nav-link" data-nav>Serviços</a>
+      <a href="#contato" class="nav-link" data-nav>Contato</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="assets/curriculo-lucas-gonçalves.pdf" download class="btn btn-ghost btn-sm nav-cv">
+        <i class="fa-solid fa-download"></i><span>Currículo</span>
+      </a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro">
+        <i class="fa-solid fa-sun"></i>
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button class="burger" id="burger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== MOBILE MENU ===== -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#top" data-nav>Início</a>
+  <a href="#sobre" data-nav>Sobre</a>
+  <a href="#tecnologias" data-nav>Tecnologias</a>
+  <a href="#projetos" data-nav>Projetos</a>
+  <a href="#servicos" data-nav>Serviços</a>
+  <a href="#contato" data-nav>Contato</a>
+  <a href="assets/curriculo-lucas-gonçalves.pdf" download class="btn btn-primary">Baixar currículo</a>
+</div>
+
+<main id="top">
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <canvas id="particles" class="particles"></canvas>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+
+    <div class="section-inner hero-inner">
+      <div class="hero-text" data-reveal>
+        <p class="eyebrow"><span class="dot"></span>console.log("Olá, eu sou")</p>
+        <h1 class="hero-title">
+          Lucas Machado <span class="text-gradient">Gonçalves</span>
+        </h1>
+        <p class="hero-role">
+          <span class="typed" id="typedRole">Desenvolvedor Web Full Stack</span><span class="cursor-blink">|</span>
+        </p>
+        <p class="hero-desc">
+          Fundador da <strong>LCODE</strong>, criando sites profissionais, sistemas personalizados,
+          APIs e soluções digitais modernas para transformar ideias em projetos reais.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projetos" class="btn btn-primary">
+            <i class="fa-solid fa-diagram-project"></i> Ver projetos
+          </a>
+          <a href="#contato" class="btn btn-outline">
+            <i class="fa-solid fa-paper-plane"></i> Entrar em contato
+          </a>
+          <a href="assets/curriculo-lucas-gonçalves.pdf" download class="btn btn-ghost">
+            <i class="fa-solid fa-file-arrow-down"></i> Baixar currículo
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-media" data-reveal>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-glow"></div>
+          <img src="assets/images/lucas.jpg" alt="Lucas Machado Gonçalves" class="hero-photo">
+          <div class="floating-badge badge-top">
+            <i class="fa-solid fa-code"></i> Full Stack
+          </div>
+          <div class="floating-badge badge-bottom">
+            <span class="pulse-dot"></span> Disponível para projetos
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <a href="#estatisticas" class="scroll-cue" aria-label="Rolar para baixo">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats" id="estatisticas">
+    <div class="section-inner">
+      <div class="stats-grid" data-reveal>
+        <div class="stat-card">
+          <span class="stat-number" data-count="3" data-suffix="+">0</span>
+          <p class="stat-label">Projetos desenvolvidos</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-count="14" data-suffix="+">0</span>
+          <p class="stat-label">Tecnologias utilizadas</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-count="100" data-suffix="%">0</span>
+          <p class="stat-label">Projetos hospedados</p>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number" data-count="1" data-suffix="">0</span>
+          <p class="stat-label">Startup fundada</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section class="about" id="sobre">
+    <div class="section-inner">
+      <p class="eyebrow" data-reveal>// sobre</p>
+      <h2 class="section-title" data-reveal>Quem constrói o que você vê aqui</h2>
+
+      <div class="about-grid">
+        <div class="about-text" data-reveal>
+          <p>
+            Meu nome é <strong>Lucas Machado Gonçalves</strong>, sou desenvolvedor web e fundador da
+            <strong class="text-accent">LCODE</strong>, uma startup focada na criação de soluções digitais modernas.
+          </p>
+          <p>
+            Desenvolvo sites profissionais, sistemas personalizados, APIs, bancos de dados,
+            currículos online e serviços de hospedagem e manutenção.
+          </p>
+          <p>
+            Minha missão é transformar ideias em experiências digitais funcionais, intuitivas e
+            bem estruturadas, unindo tecnologia, criatividade e inovação.
+          </p>
+        </div>
+
+        <div class="about-cards" data-reveal>
+          <div class="about-card">
+            <span class="about-icon">🎯</span>
+            <h3>Foco em resultados</h3>
+            <p>Cada linha de código serve a um objetivo real do projeto.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-icon">🎨</span>
+            <h3>Design moderno</h3>
+            <p>Interfaces limpas, responsivas e agradáveis de usar.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-icon">💻</span>
+            <h3>Código organizado</h3>
+            <p>Estrutura clara, fácil de manter e de evoluir.</p>
+          </div>
+          <div class="about-card">
+            <span class="about-icon">🚀</span>
+            <h3>Evolução constante</h3>
+            <p>Aprendizado contínuo de novas tecnologias e práticas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TECNOLOGIAS ===== -->
+  <section class="tech" id="tecnologias">
+    <div class="section-inner">
+      <p class="eyebrow" data-reveal>// tecnologias</p>
+      <h2 class="section-title" data-reveal>Ferramentas do dia a dia</h2>
+      <p class="section-sub" data-reveal>Clique em qualquer tecnologia para ver detalhes e em quais projetos ela foi usada.</p>
+
+      <div class="tech-grid" id="techGrid" data-reveal></div>
+    </div>
+  </section>
+
+  <!-- ===== PROJETOS ===== -->
+  <section class="projects" id="projetos">
+    <div class="section-inner">
+      <p class="eyebrow" data-reveal>// projetos</p>
+      <h2 class="section-title" data-reveal>Projetos reais, no ar</h2>
+      <p class="section-sub" data-reveal>Sistemas e sites desenvolvidos, testados e hospedados em produção.</p>
+
+      <div class="projects-grid">
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="assets/images/clinica.png" alt="Clínica Vida+ — sistema para clínica médica" loading="lazy">
+            <span class="project-tag">Sistema Web</span>
+          </div>
+          <div class="project-body">
+            <h3>Clínica Vida+</h3>
+            <p>Sistema completo de gerenciamento para clínica médica, desenvolvido com autenticação, banco de dados e hospedagem em nuvem.</p>
+            <div class="project-stack">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>MySQL</span><span>Aiven</span><span>Render</span>
+            </div>
+            <a href="https://clinica-vida-lcode.onrender.com/" target="_blank" rel="noopener" class="project-link">
+              Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="assets/images/pet.png" alt="Pet e Alegria — plataforma de petshop e adoção" loading="lazy">
+            <span class="project-tag">Plataforma</span>
+          </div>
+          <div class="project-body">
+            <h3>Pet e Alegria</h3>
+            <p>Plataforma de petshop e adoção responsável com gerenciamento de informações, API e banco de dados.</p>
+            <div class="project-stack">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>MySQL</span><span>API REST</span>
+            </div>
+            <a href="https://pet-e-alegria-lcode.onrender.com/" target="_blank" rel="noopener" class="project-link">
+              Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card" data-reveal>
+          <div class="project-image">
+            <img src="assets/images/pao-quente.png" alt="Pão Quente — site institucional" loading="lazy">
+            <span class="project-tag">Site Institucional</span>
+          </div>
+          <div class="project-body">
+            <h3>Pão Quente</h3>
+            <p>Site institucional desenvolvido para apresentar uma empresa tradicional através de uma experiência digital moderna.</p>
+            <div class="project-stack">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Cloudflare Pages</span>
+            </div>
+            <a href="https://pao-quente-lcode.pages.dev/" target="_blank" rel="noopener" class="project-link">
+              Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="services" id="servicos">
+    <div class="section-inner">
+      <p class="eyebrow" data-reveal>// serviços</p>
+      <h2 class="section-title" data-reveal>O que a LCODE entrega</h2>
+
+      <div class="services-grid">
+        <div class="service-card" data-reveal>
+          <span class="service-icon">💻</span>
+          <h3>Desenvolvimento de Sites</h3>
+          <p>Sites institucionais e landing pages rápidos, responsivos e bem estruturados.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="service-icon">⚙️</span>
+          <h3>Sistemas Personalizados</h3>
+          <p>Aplicações sob medida para as necessidades reais do seu negócio.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="service-icon">🗄️</span>
+          <h3>Banco de Dados</h3>
+          <p>Modelagem e gestão de dados segura, escalável e organizada.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="service-icon">🌐</span>
+          <h3>Hospedagem</h3>
+          <p>Deploy e hospedagem em nuvem com foco em disponibilidade.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="service-icon">🔧</span>
+          <h3>Manutenção</h3>
+          <p>Acompanhamento contínuo, correções e evoluções do sistema.</p>
+        </div>
+        <div class="service-card" data-reveal>
+          <span class="service-icon">📄</span>
+          <h3>Currículos Online</h3>
+          <p>Portfólios e currículos digitais modernos, como este.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section class="contact" id="contato">
+    <div class="section-inner">
+      <p class="eyebrow" data-reveal>// contato</p>
+      <h2 class="section-title" data-reveal>Vamos construir algo real?</h2>
+      <p class="section-sub" data-reveal>Fale comigo pelas redes ou envie uma mensagem direta no WhatsApp.</p>
+
+      <div class="social-grid" data-reveal>
+        <a href="https://www.instagram.com/luc7263l/" target="_blank" rel="noopener" class="social-card">
+          <i class="fa-brands fa-instagram"></i>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.linkedin.com/in/lucas-machado-gonçalves-395000389/" target="_blank" rel="noopener" class="social-card">
+          <i class="fa-brands fa-linkedin"></i>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://wa.me/5554999833483" target="_blank" rel="noopener" class="social-card">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span class="brand-name">LCODE</span>
+    </div>
+    <p class="footer-tagline">"Transformando ideias em soluções digitais."</p>
+    <p class="footer-meta">Lucas Machado Gonçalves &middot; &copy; 2026</p>
+  </div>
+</footer>
+
+<!-- ===== MODAL TECNOLOGIA ===== -->
+<div class="modal-overlay" id="techModalOverlay">
+  <div class="modal" id="techModal" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+    <div class="modal-icon" id="modalIcon"></div>
+    <h3 class="modal-name" id="modalName"></h3>
+    <p class="modal-desc" id="modalDesc"></p>
+    <div class="modal-level">
+      <span>Nível</span>
+      <strong id="modalLevel"></strong>
+    </div>
+    <div class="modal-used">
+      <span>Utilizado em</span>
+      <ul id="modalProjects"></ul>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
