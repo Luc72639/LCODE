@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="LCODE — soluções digitais sob medida: sites, sistemas, APIs, banco de dados, hospedagem e manutenção.">
+  <meta name="theme-color" content="#070a12">
+  <meta property="og:title" content="LCODE | Soluções Digitais">
+  <meta property="og:description" content="Sites, sistemas, APIs e soluções digitais sob medida.">
+  <meta property="og:type" content="website">
+  <title>LCODE | Soluções Digitais</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a class="brand" href="#inicio" aria-label="LCODE - início">
+        <img src="assets/images/lcode-logo.png" alt="Logo LCODE" class="logo-mark">
+      </a>
+      <nav class="nav-links" id="desktopNav" aria-label="Navegação principal">
+        <a href="#inicio" class="active">Início</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#contato">Contato</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema" title="Alternar tema"><i class="fa-solid fa-moon"></i></button>
+        <a href="#contato" class="btn btn-primary nav-cta">Falar com a LCODE <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-backdrop" id="mobileBackdrop"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menu mobile" aria-hidden="true">
+    <div class="mobile-menu-head"><span>Menu</span><button id="mobileClose" aria-label="Fechar menu"><i class="fa-solid fa-xmark"></i></button></div>
+    <a href="#inicio">Início</a><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a><a href="#contato">Contato</a>
+    <a href="#contato" class="btn btn-primary">Falar com a LCODE</a>
+  </aside>
+
+  <main id="inicio">
+    <section class="hero section">
+      <div class="hero-orb orb-a"></div><div class="hero-orb orb-b"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="status-dot"></span> SOFTWARE HOUSE · CAXIAS DO SUL</div>
+          <h1>Transformamos ideias em <span class="gradient-text">soluções digitais</span> reais.</h1>
+          <div class="typed-line"><span>Desenvolvimento de </span><strong id="typedRole">sites</strong><span class="caret">|</span></div>
+          <p class="hero-desc">A LCODE cria sites, sistemas, APIs e experiências digitais sob medida — do primeiro rascunho ao projeto publicado, com suporte próximo e visão de longo prazo.</p>
+          <div class="hero-actions"><a href="#projetos" class="btn btn-primary">Ver projetos <i class="fa-solid fa-arrow-right"></i></a><a href="#contato" class="btn btn-ghost">Falar com a LCODE <i class="fa-regular fa-paper-plane"></i></a></div>
+          <div class="availability"><span class="pulse"></span><div><strong>Disponível para novos projetos</strong><small>Vamos conversar sobre sua ideia?</small></div></div>
+          <div class="stats" aria-label="Estatísticas da LCODE">
+            <div><strong data-count="3" data-suffix="+">0</strong><span>Projetos publicados</span></div><div><strong data-count="4" data-suffix="+">0</strong><span>Soluções entregues</span></div><div><strong data-count="100" data-suffix="%">0</strong><span>Projetos online</span></div><div><strong data-count="1">0</strong><span>Startup fundada</span></div>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay">
+          <div class="visual-ring ring-one"></div><div class="visual-ring ring-two"></div>
+          <div class="hero-card"><div class="card-top"><span class="mini-dot"></span><span>LCODE / digital solutions</span><span class="mono">01</span></div><div class="code-window"><span>&lt;solution</span><span class="code-accent"> value="real"</span><span>&gt;</span><br><span class="code-muted">&nbsp;&nbsp;build()</span><br><span>&lt;/solution&gt;</span></div><div class="visual-chip chip-one"><i class="fa-solid fa-bolt"></i> Desenvolvimento ágil</div><div class="visual-chip chip-two"><i class="fa-solid fa-shield-halved"></i> Código pensado para evoluir</div></div>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#sobre" aria-label="Rolar para Sobre"><span></span></a>
+    </section>
+
+    <section class="section about" id="sobre">
+      <div class="container about-grid">
+        <div class="founder-wrap reveal"><div class="founder-glow"></div><img src="assets/images/lucas.jpg" alt="Lucas Machado Gonçalves, fundador da LCODE" class="founder-photo"><div class="founder-tag"><strong>Lucas Machado Gonçalves</strong><span>Fundador & Desenvolvedor Full Stack</span></div></div>
+        <div class="about-copy reveal reveal-delay"><div class="eyebrow">// sobre a lcode</div><h2>Uma software house de uma pessoa só, com padrão de equipe grande.</h2><p>A LCODE nasceu da vontade de <strong>Lucas Machado Gonçalves</strong> de transformar ideias em produtos digitais que realmente funcionam. A proposta é simples: comunicação direta, desenvolvimento cuidadoso e soluções construídas para o que cada negócio precisa.</p><p>Cada projeto recebe atenção do início ao fim — interface, código, banco de dados, integração e publicação. Isso permite decisões rápidas sem abrir mão de organização, usabilidade e manutenção.</p><p><strong class="gradient-text">Tecnologia com propósito.</strong> É assim que a LCODE transforma uma necessidade em uma solução digital funcional, bonita e preparada para evoluir.</p><div class="pill-row"><span><i class="fa-solid fa-code"></i> Código organizado</span><span><i class="fa-solid fa-headset"></i> Suporte direto</span><span><i class="fa-solid fa-bolt"></i> Entrega ágil</span></div></div>
+      </div>
+    </section>
+
+    <section class="section services" id="servicos">
+      <div class="container"><div class="section-head reveal"><div><div class="eyebrow">// serviços</div><h2>O que a LCODE desenvolve para você.</h2></div><p>Do primeiro site à solução integrada: cada entrega nasce de uma necessidade real.</p></div>
+        <div class="service-grid">
+          <article class="service-card reveal"><span class="service-number">01</span><div class="service-icon"><i class="fa-solid fa-globe"></i></div><h3>Desenvolvimento Web</h3><p>Sites modernos, responsivos e rápidos para apresentar sua marca com presença profissional.</p><span class="from">A partir de <b>R$ 1.000,00</b></span></article>
+          <article class="service-card reveal"><span class="service-number">02</span><div class="service-icon"><i class="fa-solid fa-layer-group"></i></div><h3>Sistemas personalizados</h3><p>Sistemas com interface própria para organizar processos, cadastros e rotinas específicas.</p><span class="from">A partir de <b>R$ 2.500</b></span></article>
+          <article class="service-card reveal"><span class="service-number">03</span><div class="service-icon"><i class="fa-solid fa-plug"></i></div><h3>APIs & integrações</h3><p>APIs e integrações conectando front-end, back-end, serviços externos e banco de dados.</p><span class="from">A partir de <b>R$ 1.500</b></span></article>
+          <article class="service-card reveal"><span class="service-number">04</span><div class="service-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><h3>Hospedagem & manutenção</h3><p>Publicação, acompanhamento e manutenção para manter seu projeto funcionando e evoluindo.</p><span class="from">Planos a partir de <b>R$ 120/mês</b></span></article>
+          <article class="service-card reveal"><span class="service-number">05</span><div class="service-icon"><i class="fa-solid fa-id-card"></i></div><h3>Currículos online</h3><p>Currículos e portfólios digitais com identidade visual própria, projetos e contato em um único link.</p><span class="from">A partir de <b>R$ 300</b></span></article>
+          <article class="service-card service-highlight reveal"><span class="service-number">06</span><div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div><h3>Solução sob medida</h3><p>Não encontrou exatamente o que procura? A LCODE pode analisar seu cenário e montar a solução.</p><a href="#contato" class="inline-link">Conversar sobre o projeto <i class="fa-solid fa-arrow-right"></i></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section process"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">// processo</div><h2>Do problema ao projeto no ar.</h2></div><p>Um processo simples, transparente e pensado para você acompanhar cada etapa.</p></div><div class="process-grid">
+      <div class="process-step reveal"><span>01</span><i class="fa-regular fa-message"></i><h3>Você apresenta a ideia</h3><p>Entendemos o objetivo, o público e o que precisa ser resolvido.</p></div>
+      <div class="process-step reveal"><span>02</span><i class="fa-solid fa-compass-drafting"></i><h3>Planejamos a solução</h3><p>Definimos escopo, estrutura, prioridades e próximos passos.</p></div>
+      <div class="process-step reveal"><span>03</span><i class="fa-solid fa-code"></i><h3>Desenvolvemos</h3><p>Construímos a interface, funcionalidades, integrações e banco.</p></div>
+      <div class="process-step reveal"><span>04</span><i class="fa-solid fa-rocket"></i><h3>Publicamos</h3><p>Colocamos o projeto no ar e validamos a entrega.</p></div>
+      <div class="process-step reveal"><span>05</span><i class="fa-solid fa-arrows-rotate"></i><h3>Evoluímos</h3><p>Manutenção e melhorias continuam quando o projeto precisar.</p></div>
+    </div></div></section>
+
+<section class="results-section" id="solucoes">
+  <div class="section-heading">
+    <span class="eyebrow">RESULTADO EM PRIMEIRO LUGAR</span>
+    <h2>Você traz a necessidade.<br><strong>A LCODE entrega a solução.</strong></h2>
+    <p>Não vendemos código. Desenvolvemos experiências digitais pensadas para resolver problemas reais e gerar valor para o seu negócio.</p>
+  </div>
+  <div class="result-grid">
+    <article class="result-card"><span>01</span><h3>Presença digital</h3><p>Sites profissionais que apresentam sua empresa, seus serviços e sua proposta com clareza.</p></article>
+    <article class="result-card"><span>02</span><h3>Processos mais simples</h3><p>Sistemas personalizados para organizar tarefas e facilitar a rotina.</p></article>
+    <article class="result-card"><span>03</span><h3>Conexões inteligentes</h3><p>Integrações e APIs para fazer serviços e informações trabalharem juntos.</p></article>
+    <article class="result-card"><span>04</span><h3>Projeto que continua</h3><p>Hospedagem, manutenção e evolução para sua solução continuar crescendo.</p></article>
+  </div>
+</section>
+
+<section class="section projects" id="projetos"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">// portfólio</div><h2>Projetos que já estão no ar.</h2></div><p>Projetos reais, publicados e construídos para necessidades diferentes.</p></div><div class="project-grid">
+      <article class="project-card reveal"><div class="project-image"><img src="assets/images/clinica.png" alt="Prévia do projeto Clínica Vida+"><span class="project-status"><i></i> Online</span></div><div class="project-body"><div class="project-type">Sistema web</div><h3>Clínica Vida+</h3><p>Sistema de gerenciamento para clínica médica com consultas, médicos, pacientes e área administrativa.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>MySQL</span></div><a href="https://clinica-vida-lcode.onrender.com/" target="_blank" rel="noopener noreferrer" class="project-link">Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="assets/images/pet.png" alt="Prévia do projeto Pet e Alegria"><span class="project-status"><i></i> Online</span></div><div class="project-body"><div class="project-type">Site + sistema</div><h3>Pet e Alegria</h3><p>Plataforma de pet shop e adoção responsável, com serviços, animais e estrutura de dados integrada.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Node.js</span><span>MySQL</span><span>API</span></div><a href="https://pet-e-alegria-lcode.onrender.com/#servicos" target="_blank" rel="noopener noreferrer" class="project-link">Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="assets/images/pao-quente.png" alt="Prévia do projeto Pão Quente"><span class="project-status"><i></i> Online</span></div><div class="project-body"><div class="project-type">Site institucional</div><h3>Pão Quente</h3><p>Site institucional moderno para apresentar história, produtos, sabores e unidades de uma padaria.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Cloudflare Pages</span></div><a href="https://pao-quente-lcode.pages.dev/" target="_blank" rel="noopener noreferrer" class="project-link">Acessar projeto <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+      <article class="project-card reveal"><div class="project-image"><img src="assets/images/lucas.jpg" alt="Prévia do currículo online de Lucas Machado Gonçalves"><span class="project-status"><i></i> Online</span></div><div class="project-body"><div class="project-type">Currículo online</div><h3>Currículo Lucas</h3><p>Currículo profissional transformado em uma experiência digital moderna, responsiva e interativa.</p><div class="tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Cloudflare Pages</span></div><a href="https://lcode.pages.dev/" target="_blank" rel="noopener noreferrer" class="project-link">Acessar currículo <i class="fa-solid fa-arrow-up-right-from-square"></i></a></div></article>
+    </div></div></section>
+
+    <section class="section plans" id="planos"><div class="container"><div class="section-head reveal"><div><div class="eyebrow">// manutenção</div><h2>Seu projeto não termina no deploy.</h2></div><p>Opções para manter o site hospedado, corrigido e atualizado.</p></div><div class="plans-grid"><article class="plan-card reveal"><div class="plan-top"><span>Manutenção Padrão</span><span class="plan-label">Essencial</span></div><div class="price"><small>R$</small>120 <em>/mês</em></div><ul><li>Hospedagem inclusa</li><li>1 manutenção geral por mês</li><li>Até 5 problemas de baixa complexidade/mês</li></ul><a href="#contato" class="btn btn-ghost">Quero este plano</a></article><article class="plan-card featured reveal"><div class="plan-top"><span>Manutenção Premium</span><span class="plan-label">Mais completo</span></div><div class="price"><small>R$</small>200 <em>/mês</em></div><ul><li>Hospedagem inclusa</li><li>2 manutenções gerais por mês</li><li>Até 10 problemas de baixa complexidade/mês</li></ul><a href="#contato" class="btn btn-primary">Quero este plano</a></article></div><p class="price-note"><i class="fa-solid fa-circle-info"></i> Os valores são referências. O orçamento final depende do escopo, funcionalidades, integrações e complexidade do projeto.</p></div></section>
+
+    <section class="section final-cta" id="contato"><div class="container"><div class="cta-box reveal"><div><div class="eyebrow">// contato</div><h2>Vamos tirar sua ideia do papel?</h2><p>Conte o que você precisa e vamos encontrar juntos a melhor solução digital para o seu projeto.</p></div><a href="https://wa.me/5554999833483" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-large">Falar com a LCODE <i class="fa-brands fa-whatsapp"></i></a></div><div class="contact-grid"><a href="https://www.instagram.com/luc7263l/" target="_blank" rel="noopener noreferrer" class="contact-card"><i class="fa-brands fa-instagram"></i><div><strong>Instagram</strong><span>@luc7263l</span></div><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a><a href="https://www.linkedin.com/in/lucas-machado-gonçalves-395000389/" target="_blank" rel="noopener noreferrer" class="contact-card"><i class="fa-brands fa-linkedin-in"></i><div><strong>LinkedIn</strong><span>Lucas Machado Gonçalves</span></div><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a><a href="https://wa.me/5554999833483" target="_blank" rel="noopener noreferrer" class="contact-card"><i class="fa-brands fa-whatsapp"></i><div><strong>WhatsApp</strong><span>Fale diretamente comigo</span></div><i class="fa-solid fa-arrow-up-right-from-square arrow"></i></a></div></div></section>
+  </main>
+
+  <footer class="footer"><div class="container footer-grid"><div><a class="brand" href="#inicio"><img src="assets/images/logo-icon.png" alt="Logo LCODE" class="logo-mark"><span>LCODE</span></a><p>Soluções digitais que transformam ideias em resultados.</p></div><div><h4>Navegação</h4><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#projetos">Projetos</a></div><div><h4>Serviços</h4><a href="#servicos">Desenvolvimento Web</a><a href="#servicos">Sistemas</a><a href="#servicos">APIs</a><a href="#planos">Hospedagem & manutenção</a></div><div><h4>Vamos conversar?</h4><p>Disponível para novos projetos e oportunidades.</p><a href="https://wa.me/5554999833483" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Entrar em contato <i class="fa-brands fa-whatsapp"></i></a></div></div><div class="container footer-bottom"><span>© 2026 Lucas Machado Gonçalves · LCODE</span><span>Feito com código e propósito.</span></div></footer>
+</div>
+
+  <button class="back-top" id="backTop" aria-label="Voltar ao topo"><i class="fa-solid fa-arrow-up"></i></button>
+  <script src="js/script.js"></script>
+</body>
+</html>
