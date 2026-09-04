@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LCODE Briefing Studio</title>
+<meta name="description" content="Conte sua ideia para a LCODE. Um briefing guiado para entendermos sua empresa, seus objetivos e sua visão antes de desenvolvermos seu projeto.">
+<meta name="theme-color" content="#0066FF">
+<link rel="icon" type="image/png" href="assets/favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <img src="assets/logo.png" alt="LCODE" class="brand-logo">
+    </div>
+    <div class="topbar-right">
+      <span class="step-indicator" id="stepIndicator" hidden></span>
+      <button type="button" class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- ================= INTRO ================= -->
+  <section class="screen screen-intro" id="screenIntro">
+    <div class="intro-glow" aria-hidden="true"></div>
+    <div class="intro-content">
+      <span class="kicker">LCODE &middot; BRIEFING</span>
+      <h1>Vamos transformar sua ideia<br>em uma solução digital.</h1>
+      <p class="intro-desc">Antes de desenvolvermos seu projeto, queremos entender sua empresa, seus objetivos e sua visão.</p>
+
+      <div class="intro-meta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+        <span>Tempo estimado &middot; <strong>5 minutos</strong></span>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-lg" id="startBtn">
+        Começar briefing
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ================= FORM ================= -->
+  <section class="screen screen-form" id="screenForm" hidden>
+
+    <div class="stepper" id="stepper" aria-hidden="true">
+      <div class="stepper-track"><div class="stepper-fill" id="stepperFill"></div></div>
+      <ol class="stepper-dots" id="stepperDots"></ol>
+    </div>
+
+    <form id="briefingForm" novalidate>
+
+      <!-- ETAPA 1 -->
+      <div class="step" data-step="1">
+        <div class="step-head">
+          <span class="step-eyebrow">Etapa 01</span>
+          <h2>Sobre sua empresa</h2>
+          <p>Comece nos contando quem é você e como falar com você.</p>
+        </div>
+        <div class="field-grid">
+          <label class="field"><span>Nome da empresa</span><input type="text" name="empresa" required autocomplete="organization"></label>
+          <label class="field"><span>Responsável</span><input type="text" name="responsavel" required autocomplete="name"></label>
+          <label class="field"><span>WhatsApp</span><input type="tel" name="whatsapp" required autocomplete="tel" placeholder="(00) 00000-0000"></label>
+          <label class="field"><span>E-mail</span><input type="email" name="email" required autocomplete="email"></label>
+          <label class="field">
+            <span>Segmento</span>
+            <select name="segmento" required>
+              <option value="" disabled selected>Selecione</option>
+              <option>Alimentação</option><option>Saúde e bem-estar</option><option>Moda e beleza</option>
+              <option>Educação</option><option>Serviços profissionais</option><option>Comércio e varejo</option>
+              <option>Tecnologia</option><option>Imóveis</option><option>Indústria</option><option>Outro</option>
+            </select>
+          </label>
+          <label class="field"><span>Cidade</span><input type="text" name="cidade" autocomplete="address-level2"></label>
+          <label class="field"><span>Instagram <em>(opcional)</em></span><input type="text" name="instagram" placeholder="@suaempresa"></label>
+          <label class="field"><span>Site atual <em>(opcional)</em></span><input type="text" name="siteAtual" placeholder="https://"></label>
+        </div>
+      </div>
+
+      <!-- ETAPA 2 -->
+      <div class="step" data-step="2">
+        <div class="step-head">
+          <span class="step-eyebrow">Etapa 02</span>
+          <h2>Sobre o projeto</h2>
+          <p>O que você está buscando construir com a LCODE?</p>
+        </div>
+
+        <h3 class="group-title">Qual solução você procura?</h3>
+        <div class="choice-cards" data-group="solucao" data-mode="single">
+          <button type="button" data-value="Site institucional"><b>Site institucional</b><span>Presença profissional online</span></button>
+          <button type="button" data-value="Landing page"><b>Landing page</b><span>Página única e objetiva</span></button>
+          <button type="button" data-value="Loja virtual"><b>Loja virtual</b><span>Vender produtos online</span></button>
+          <button type="button" data-value="Sistema personalizado"><b>Sistema personalizado</b><span>Ferramenta sob medida</span></button>
+          <button type="button" data-value="Currículo/portifólio online"><b>Currículo/portifólio online</b><span>ótimo para profissionais</span></button>
+        </div>
+
+        <h3 class="group-title">Qual é o principal objetivo?</h3>
+        <div class="choice-chips" data-group="objetivo" data-mode="multi">
+          <button type="button" data-value="Atrair clientes">Atrair clientes</button>
+          <button type="button" data-value="Vender mais">Vender mais</button>
+          <button type="button" data-value="Melhorar presença digital">Melhorar presença digital</button>
+          <button type="button" data-value="Apresentar serviços">Apresentar serviços</button>
+          <button type="button" data-value="Fortalecer marca">Fortalecer marca</button>
+        </div>
+      </div>
+
+      <!-- ETAPA 3 -->
+      <div class="step" data-step="3">
+        <div class="step-head">
+          <span class="step-eyebrow">Etapa 03</span>
+          <h2>Sobre o negócio</h2>
+          <p>Nos ajude a entender o contexto por trás do projeto.</p>
+        </div>
+        <div class="field-grid field-grid-1">
+          <label class="field"><span>Conte sobre sua empresa</span><textarea name="sobreEmpresa" rows="3"></textarea></label>
+          <label class="field"><span>Quais serviços ou produtos oferece?</span><textarea name="servicosProdutos" rows="3"></textarea></label>
+          <label class="field"><span>Quem são seus clientes?</span><textarea name="clientes" rows="3"></textarea></label>
+          <label class="field"><span>Qual é o seu diferencial?</span><textarea name="diferencial" rows="3"></textarea></label>
+        </div>
+      </div>
+
+      <!-- ETAPA 4 -->
+      <div class="step" data-step="4">
+        <div class="step-head">
+          <span class="step-eyebrow">Etapa 04</span>
+          <h2>Identidade visual</h2>
+          <p>Como você imagina a personalidade visual do projeto?</p>
+        </div>
+
+        <div class="choice-cards choice-cards-compact" data-group="estilo" data-mode="single">
+          <button type="button" data-value="Moderno"><b>Moderno</b></button>
+          <button type="button" data-value="Premium"><b>Premium</b></button>
+          <button type="button" data-value="Minimalista"><b>Minimalista</b></button>
+          <button type="button" data-value="Elegante"><b>Elegante</b></button>
+          <button type="button" data-value="Criativo"><b>Criativo</b></button>
+          <button type="button" data-value="Tecnológico"><b>Tecnológico</b></button>
+          <button type="button" data-value="Profissional"><b>Profissional</b></button>
+        </div>
+
+        <div class="field-grid">
+          <label class="field"><span>Cores desejadas</span><input type="text" name="coresDesejadas" placeholder="Ex.: azul, branco"></label>
+          <label class="field"><span>Cores que não deseja</span><input type="text" name="coresIndesejadas" placeholder="Ex.: vermelho, verde"></label>
+          <label class="field field-full"><span>Referências visuais <em>(opcional)</em></span><textarea name="referenciasVisuais" rows="2" placeholder="Sites, perfis ou marcas que você admira"></textarea></label>
+        </div>
+      </div>
+
+      <!-- ETAPA 5 -->
+      <div class="step" data-step="5">
+        <div class="step-head">
+          <span class="step-eyebrow">Etapa 05</span>
+          <h2>Conteúdo</h2>
+          <p>O que você já tem pronto para o projeto?</p>
+        </div>
+
+        <h3 class="group-title">Você já possui</h3>
+        <div class="choice-chips" data-group="possui" data-mode="multi">
+          <button type="button" data-value="Logo">Logo</button>
+          <button type="button" data-value="Fotos">Fotos</button>
+          <button type="button" data-value="Textos">Textos</button>
+          <button type="button" data-value="Vídeos">Vídeos</button>
+          <button type="button" data-value="Catálogo">Catálogo</button>
+          <button type="button" data-value="Depoimentos">Depoimentos</button>
+        </div>
+
+        <h3 class="group-title">Sobre as imagens</h3>
+        <div class="choice-cards choice-cards-compact" data-group="imagens" data-mode="single">
+          <button type="button" data-value="Já possuo"><b>Já possuo</b></button>
+          <button type="button" data-value="Preciso de ajuda"><b>Preciso de ajuda</b></button>
+          <button type="button" data-value="Quero imagens profissionais"><b>Quero imagens profissionais</b></button>
+        </div>
+      </div>
+
+      <!-- ETAPA 6 -->
+      <div class="step" data-step="6">
+        <div class="step-head">
+          <span class="step-eyebrow">Etapa 06</span>
+          <h2>Estrutura do site</h2>
+          <p>Apenas um planejamento — sem editor visual. Escolha as páginas que fazem sentido.</p>
+        </div>
+
+        <div class="choice-chips" data-group="paginas" data-mode="multi">
+          <button type="button" data-value="Home">Home</button>
+          <button type="button" data-value="Sobre">Sobre</button>
+          <button type="button" data-value="Serviços">Serviços</button>
+          <button type="button" data-value="Produtos">Produtos</button>
+          <button type="button" data-value="Portfólio">Portfólio</button>
+          <button type="button" data-value="Blog">Blog</button>
+          <button type="button" data-value="Contato">Contato</button>
+          <button type="button" data-value="FAQ">FAQ</button>
+        </div>
+
+        <div class="field-grid field-grid-1">
+          <label class="field"><span>Existe alguma seção específica que gostaria de adicionar?</span><textarea name="secaoEspecifica" rows="3"></textarea></label>
+        </div>
+      </div>
+
+      <!-- ETAPA 7 -->
+      <div class="step" data-step="7">
+        <div class="step-head">
+          <span class="step-eyebrow">Etapa 07</span>
+          <h2>Referências &amp; revisão</h2>
+          <p>Últimos detalhes antes de enviar seu briefing para a LCODE.</p>
+        </div>
+
+        <div class="field-grid field-grid-1">
+          <label class="field"><span>Sites que você gosta</span><textarea name="sitesQueGosta" rows="2"></textarea></label>
+          <label class="field"><span>Outras referências <em>(opcional)</em></span><textarea name="outrasReferencias" rows="2"></textarea></label>
+          <label class="field"><span>O que você não gostaria de ver</span><textarea name="naoGostaria" rows="2"></textarea></label>
+          <label class="field"><span>Observações finais <em>(opcional)</em></span><textarea name="observacoes" rows="2"></textarea></label>
+        </div>
+
+        <div class="review" id="reviewBox"></div>
+
+        <label class="consent">
+          <input type="checkbox" name="consentimento" required>
+          <span>Confirmo que as informações fornecidas estão corretas e autorizo a LCODE a utilizá-las para elaborar minha proposta.</span>
+        </label>
+      </div>
+
+      <div class="step-nav">
+        <button type="button" class="btn btn-ghost" id="backBtn">Voltar</button>
+        <span class="autosave" id="autosaveStatus">Salvo automaticamente</span>
+        <button type="submit" class="btn btn-primary" id="nextBtn">Continuar</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ================= SUCCESS ================= -->
+  <section class="screen screen-success" id="screenSuccess" hidden>
+    <div class="success-content">
+      <div class="success-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+      </div>
+      <h1>Briefing enviado.</h1>
+      <p>Recebemos todas as informações. A LCODE vai analisar sua ideia e entrar em contato para os próximos passos.</p>
+      <a class="btn btn-outline" id="restartBtn" href="#">Voltar ao início</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/email.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
